@@ -18,15 +18,36 @@ let bruteForceTwoSum = (array, sum) => {
 
 let binarySearchTwoSum = (array, sum) => {
 
+    // let sortedArray = array.sort();
+    // let arrayOfAnswers = [];
+
+    // for(let i=0; i<sortedArray.length-1; i++){
+    //     let targetNum = sum - sortedArray[i];
+        
+    //     if(targetNum === 0){
+    //         arrayOfAnswers.push([sortedArray[i], 0]);
+    //     }
+    //     else if(binaryMatch(sortedArray, targetNum)){
+    //         arrayOfAnswers.push([sortedArray[i], targetNum]);
+    //     }
+    // }
+
+    // console.log(arrayOfAnswers);
+    // return arrayOfAnswers;
+
+
+    //above is working but tests only want unique arrays and must have two elements. (6,0) is not acceptable;
+
     let sortedArray = array.sort();
     let arrayOfAnswers = [];
+    
+    for(let i=0; i<sortedArray.length; i++){
+        let targetNum = sum - sortedArray[i];
 
-    for(let i=0; i<array.length-1; i++){
-
-
-
+        if(targetNum !==0 && binaryMatch(sortedArray, targetNum)){
+            
+        }
     }
-
 
     return arrayOfAnswers;
 }
@@ -50,4 +71,6 @@ let binaryMatch = (sortedArray, missingNum) => {
     else if(sortedArray.length <=1 && sortedArray[middleIndex] !== missingNum){
         return false;
     }
+
+    return false;
 }
