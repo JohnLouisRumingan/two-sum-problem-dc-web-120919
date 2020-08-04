@@ -52,6 +52,10 @@ let binarySearchTwoSum = (array, sum) => {
     return arrayOfAnswers;
 }
 
+// reduce array to accomodate for unique values
+
+
+
 // recursive binaryMatch 
 let binaryMatch = (sortedArray, missingNum) => {
 
