@@ -44,7 +44,7 @@ let binarySearchTwoSum = (array, sum) => {
     for(let i=0; i<sortedArray.length; i++){
         let targetNum = sum - sortedArray[i];
 
-        if(targetNum !==0 && binaryMatch(sortedArray, targetNum)){
+        if(binaryMatch(sortedArray, targetNum)){
             
         }
     }
@@ -52,7 +52,7 @@ let binarySearchTwoSum = (array, sum) => {
     return arrayOfAnswers;
 }
 
-// reduce array to accomodate for unique values
+// reduce array size to accomodate for unique values
 
 
 
