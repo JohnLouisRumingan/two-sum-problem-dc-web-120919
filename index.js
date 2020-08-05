@@ -40,37 +40,35 @@ let binarySearchTwoSum = (array, sum) => {
 
     let sortedArray = array.sort();
     let arrayOfAnswers = [];
+    let uniqueValues = [];
     
     for(let i=0; i<sortedArray.length; i++){
         let targetNum = sum - sortedArray[i];
 
-        if(binaryMatch(sortedArray, targetNum)){
-            
+        if(binaryMatch(sortedArray, targetNum) && !uniqueValues.includes(sortedArray[i])){
+            arrayOfAnswers.push([sortedArray[i], targetNum])
+            uniqueValues.push(i, targetNum)
         }
     }
 
     return arrayOfAnswers;
 }
 
-// reduce array size to accomodate for unique values
-
-
-
 // recursive binaryMatch 
 let binaryMatch = (sortedArray, missingNum) => {
 
-    let middleIndex = sortedArray.length/2;
+    let middleIndex = parseInt(sortedArray.length/2);
 
     if(sortedArray[middleIndex] === missingNum){
         return true;
     }
     else if(sortedArray[middleIndex] > missingNum){
         //return left half of subarray here 
-        return binaryMatch(sortedArray.slice(middleIndex));
+        return binaryMatch(sortedArray.slice(0, middleIndex), missingNum);
     }
     else if(sortedArray[middleIndex] < missingNum){
         // return right half of original array here
-        return binaryMatch(sortedArray.slice(0, middleIndex));
+        return binaryMatch(sortedArray.slice(middleIndex), missingNum);
     }
     else if(sortedArray.length <=1 && sortedArray[middleIndex] !== missingNum){
         return false;
